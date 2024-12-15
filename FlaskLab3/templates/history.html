@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История сортировок</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>История сортировок</h1>
+        <ul>
+            {% for record in records %}
+            <li>
+                <strong>Оригинальный:</strong> {{ record.original_array }}<br>
+                <strong>Отсортированный:</strong> {{ record.sorted_array }}
+            </li>
+            {% endfor %}
+        </ul>
+        <form method="POST" action="/clear_history" class="text-center">
+            <button type="submit">Очистить историю</button>
+        </form>
+        <div class="text-center">
+            <a href="/">Назад</a>
+        </div>
+    </div>
+</body>
+</html>
